@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Device implements Serializable {
-    public static final String KEY_DEVICE_NO="deviceNo";
+    public static final String KEY_DEVICE_NO = "deviceNo";
     //region ----------设备固定参数---------
     //设备编号
     private String deviceNo;
@@ -2998,7 +2998,7 @@ public class Device implements Serializable {
      * @param data
      */
     public void setJiShuiYaLi(int data) {
-        jishuiyali = data ;
+        jishuiyali = data;
     }
 
     //出口压力,单位："MPa"
@@ -5715,7 +5715,6 @@ public class Device implements Serializable {
     }
 
 
-
     //endregion
     //数据更新时间
     private Date comeDate;
@@ -5727,19 +5726,32 @@ public class Device implements Serializable {
     public void setComeDate(Date comeDate) {
         this.comeDate = comeDate;
     }
-    private Device(String deviceN){
+
+    private Device(String deviceN) {
         this.deviceNo = deviceN;
     }
 
-    public static Device getInstance(String deviceNo){
+    public static Device getInstance(String deviceNo) {
         return new Device(deviceNo);
     }
 
-    private int focusItem1,focusItem2,focusItem3;
+    public int getFocusItem1() {
+        return focusItem1;
+    }
 
-    public void initFocusItems(DeviceFocusConfig config){
-        for(SettingConfig conf : config.getSetting()){
-            if(this.getPower() == conf.getPower() && this.getMedia() == conf.getMedia()){
+    public int getFocusItem2() {
+        return focusItem2;
+    }
+
+    public int getFocusItem3() {
+        return focusItem3;
+    }
+
+    private int focusItem1, focusItem2, focusItem3;
+
+    public void initFocusItems(DeviceFocusConfig config) {
+        for (SettingConfig conf : config.getSetting()) {
+            if (this.getPower() == conf.getPower() && this.getMedia() == conf.getMedia()) {
                 try {
                     this.focusItem1 = this.getClass().getDeclaredField(conf.getItem1()).getInt(this);
                 } catch (IllegalAccessException e) {
@@ -5768,9 +5780,18 @@ public class Device implements Serializable {
 
     /**
      * 生成设备快照
+     *
      * @return DeviceSnapshot
      */
-    public DeviceSnapshot getSnapshot(){
-        return null;
+    public DeviceSnapshot getSnapshot() {
+        return DeviceSnapshot.getDeviceSnapshot(this);
+    }
+
+    public int getAlarmCount() {
+        return paiyanwendugao + lushuiwendugao + chukouwendugao + chaoya + jixiandishuiwei + dishuiwei + gaoshuiwei + shuiweixinhaoluojicuo + lubiwendugao + fuyazhengqiwendugao + ranshaoqiguzhang + ranqixielou + ranqiyalidi + ranqiyaliyichang + ranqiyaligao + jishuibianpinqiguzhang + xunhuanbianpinqiguzhang + yinfengbianpinqiguzhang + gufengbianpinqiguzhang + ecigufengbianpinqiguzhang + lupaibianpinqiguzhang + jishuibengguzhang + xunhuanbengguzhang + xunhuanxitongqianya + didianya + gaodianya + quexiang + loudian + biansongqiguoyabaohu + guanjiancanshuyichang + shedingcanshuyichang + shizhongguzhang + cunchuqiguzhang + waibuliansuo + queyou + diyouwei + bentipaiyanwendugao;
+    }
+
+    public int getErrorCount() {
+        return bentipaiyanwenduerror + paiyanwenduerror + lushuiwenduerror + chukouwenduerror + rukouwenduerror + jienengqichukouwenduerror + jienengqirukouwenduerror + jishuiwenduerror + lutangwenduerror + lutangchukouwenduerror + lubiwenduerror + ranliaowenduerror + kongyuqichukourefengwenduerror + fuyazhengqiwenduerror + guorezhengqiwenduerror + huilu1wenduerror + huilu2wenduerror + huilu3wenduerror + huilu4wenduerror + huilu5wenduerror + shiwaiwenduerror + zhengqiyalierror + jishuiyalierror + chukouyalierror + rukouyalierror + lutangyalierror + lutangchukouyalierror + ranqiyalierror + yicifengyaerror + ecifengyaerror + shunshiranliaoliangerror + shunshizhengqiliuliangerror + shunshijishuiliuliangerror + shunshixunhuanliuliangerror + shunshibushuiliuliangerror + guoluyeweierror + shuixiangyeweierror + paiyanyanghanliangerror + lupaisudufankuierror + yinfengshuchufankuierror + gufengshuchufankuierror + jishuishuchufankuierror;
     }
 }

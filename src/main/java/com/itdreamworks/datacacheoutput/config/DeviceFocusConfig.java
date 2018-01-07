@@ -1,13 +1,14 @@
 package com.itdreamworks.datacacheoutput.config;
 
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 不同类型设备关注点配置
+ */
 @Component
 @ConfigurationProperties(prefix = "DeviceFocus")
 public class DeviceFocusConfig {
