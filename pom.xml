@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.itdreamworks</groupId>
-	<artifactId>datacacheoutput</artifactId>
+	<artifactId>datacache</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>datacacheoutput</name>
+	<name>datacache</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
