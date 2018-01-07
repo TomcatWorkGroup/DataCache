@@ -116,9 +116,9 @@ public class DeviceSnapshot {
         this.error = error;
     }
 
-    //报警状态
+    //报警数量
     private int alarm;
-    //故障状态
+    //故障数量
     private int error;
 
     //设备运行天数
@@ -149,4 +149,23 @@ public class DeviceSnapshot {
         }
         return ls;
     }
+
+    public static DeviceSnapshot getDeviceSnapshot(Device device){
+        DeviceSnapshot snapshot = new DeviceSnapshot();
+        snapshot.deviceNo = device.getDeviceNo();
+        snapshot.comeDate = device.getComeDate();
+        snapshot.power = device.getPower();
+        snapshot.media = device.getMedia();
+        snapshot.nickName = device.getNickName();
+        snapshot.runDays = device.getRunDays();
+        snapshot.runHours = device.getRunHours();
+        snapshot.runstatus = device.getRunstatus();
+        snapshot.focusItem1 = device.getFocusItem1();
+        snapshot.focusItem2 = device.getFocusItem2();
+        snapshot.focusItem3 = device.getFocusItem3();
+        snapshot.alarm = device.getAlarmCount();
+        snapshot.error = device.getErrorCount();
+        return snapshot;
+    }
+
 }
