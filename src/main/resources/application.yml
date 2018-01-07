@@ -1,0 +1,26 @@
+spring:
+  cache:
+      type: ehcache
+      ehcache:
+        config: ehcache.xml
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: netweb
+    password: Test@qq.com
+    virtual-host: Cache
+
+DeviceFocus:
+  setting:
+  -
+    power: 1
+    media: 2
+    item1: DD
+    item2: EE
+    item3: FF
+  -
+    power: 1
+    media: 1
+    item1: DDD
+    item2: EEE
+    item3: FFF
