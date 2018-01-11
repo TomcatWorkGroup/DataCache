@@ -1,5 +1,8 @@
 package com.itdreamworks.datacacheoutput.entity;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -149,7 +152,15 @@ public class DeviceSnapshot {
         }
         return ls;
     }
-
+    public String toJson(){
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public static DeviceSnapshot getDeviceSnapshot(Device device){
         DeviceSnapshot snapshot = new DeviceSnapshot();
         snapshot.deviceNo = device.getDeviceNo();

@@ -6,12 +6,20 @@ spring:
       ehcache:
         config: ehcache.xml
   rabbitmq:
-    host: localhost
+    host: 39.106.168.77
     port: 5672
-    username: netweb
-    password: Test@qq.com
-    virtual-host: Cache
-DeviceFocus:
+    username: tomcat
+    password: 80201288
+    virtual-host: MsgCenter
+
+listeningQueue: DeviceMsgQueue
+
+storageExchange:
+    name: CacheStorageExchange
+    queue: CacheStorageQueue
+    routingkey: CacheStorage
+
+devicefocus:
   setting:
   -
     power: 1

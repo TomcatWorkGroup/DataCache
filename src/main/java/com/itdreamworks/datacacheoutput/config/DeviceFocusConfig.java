@@ -10,7 +10,7 @@ import java.util.List;
  * 不同类型设备关注点配置
  */
 @Component
-@ConfigurationProperties(prefix = "DeviceFocus")
+@ConfigurationProperties(prefix = "devicefocus")
 public class DeviceFocusConfig {
     public List<SettingConfig> getSetting() {
         return setting;

@@ -3,7 +3,7 @@ package com.itdreamworks.datacacheoutput.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 
-@ConfigurationProperties(prefix = "DeviceFocus.setting")
+@ConfigurationProperties(prefix = "devicefocus.setting")
 public class SettingConfig {
     private int power;
 

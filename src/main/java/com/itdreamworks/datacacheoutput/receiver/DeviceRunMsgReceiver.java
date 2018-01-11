@@ -2,12 +2,16 @@ package com.itdreamworks.datacacheoutput.receiver;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.itdreamworks.datacacheoutput.config.DeviceFocusConfig;
+import com.itdreamworks.datacacheoutput.config.MQSetting;
 import com.itdreamworks.datacacheoutput.entity.Device;
+import com.itdreamworks.datacacheoutput.entity.DeviceSnapshot;
+import com.itdreamworks.datacacheoutput.sender.CacheStorageMsgSender;
 import com.itdreamworks.datacacheoutput.utils.EhCacheUtil;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.Cache;
 import org.springframework.stereotype.Component;
 
@@ -23,8 +27,10 @@ public class DeviceRunMsgReceiver extends BaseReceiver {
     EhCacheUtil cacheUtil;
     @Autowired
     DeviceFocusConfig deviceFocusConfig;
+    @Autowired
+    CacheStorageMsgSender sender;
 
-    @RabbitListener(queues = "ClientMsgQueue")
+    @RabbitListener(queues = "${listeningQueue}")
     @RabbitHandler
     public void process(byte[] msg) {
         String jsonStr = new String(msg, CHAR_SET);
@@ -39,6 +45,7 @@ public class DeviceRunMsgReceiver extends BaseReceiver {
                     cache.put(key,device);
                     modifyDeviceFields(jsonObj,device);
                     device.initFocusItems(deviceFocusConfig);
+                    sender.send(DeviceSnapshot.getDeviceSnapshot(device).toJson());
                 }else{
                     Object o = cache.get(key);
                     device = (Device) cache.get(key).get();

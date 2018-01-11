@@ -1,5 +1,6 @@
 package com.itdreamworks.datacacheoutput.sender;
 
+import com.itdreamworks.datacacheoutput.config.StorageExchange;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.support.CorrelationData;
@@ -9,8 +10,10 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 @Component
-public class DataRequestMsgSender implements RabbitTemplate.ConfirmCallback, RabbitTemplate.ReturnCallback {
+public class CacheStorageMsgSender implements RabbitTemplate.ConfirmCallback, RabbitTemplate.ReturnCallback {
 
+    @Autowired
+    StorageExchange storageExchange;
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
@@ -21,7 +24,9 @@ public class DataRequestMsgSender implements RabbitTemplate.ConfirmCallback, Rab
     }
 
     public void send(String msg){
-        rabbitTemplate.convertAndSend("exchange","routeKey","msg");
+        if(null == msg || msg.isEmpty())
+            return;
+        rabbitTemplate.convertAndSend(storageExchange.getName(),storageExchange.getRoutingkey(),"msg");
     }
 
     @Override
