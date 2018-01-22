@@ -4,6 +4,8 @@ import com.itdreamworks.datacacheoutput.entity.Device;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
+import org.springframework.cache.ehcache.EhCacheCache;
+import org.springframework.cache.ehcache.EhCacheCacheManager;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -12,22 +14,27 @@ import java.util.List;
 @Component
 public class EhCacheUtil {
     public static final String CACHE_DEVICE_INFO = "cache_device_info";
-    public static final String CACHE_DEVICE_USER_MAP = "cache_device_user_map";
 
     @Autowired
-    CacheManager cacheManager;
+    EhCacheCacheManager cacheManager;
 
-    public Cache getCache(String cacheName){
-        return cacheManager.getCache(cacheName);
+
+    public EhCacheCache getCache(String cacheName){
+        return (EhCacheCache)cacheManager.getCache(cacheName);
     }
 
     public Device getDevice(String key){
-        Cache cache = getCache(CACHE_DEVICE_INFO);
+        EhCacheCache cache = getCache(CACHE_DEVICE_INFO);
         Cache.ValueWrapper element = cache.get(key);
-            if(null != element){
-                return (Device) element.get();
-            }
+        if(null != element){
+            return (Device) element.get();
+        }
         return null;
+    }
+
+    public void putDevice(Device device){
+        EhCacheCache cache = getCache(CACHE_DEVICE_INFO);
+        cache.put(device.getDeviceNo(),device);
     }
 
     public List<Device> getDevices(String[] keys){

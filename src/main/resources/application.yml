@@ -1,35 +1,28 @@
-romteurl: http://www.baidu.com
+logging:
+  file: /home/tomcat/apache-tomcat-8.5.8/webapps/datacache.log
+  level: error
+token:
+  user: userToken
+  resource: rescToken
 
 spring:
+  profiles:
+      active: prod
   cache:
-      type: ehcache
-      ehcache:
-        config: ehcache.xml
-  rabbitmq:
-    host: 39.106.168.77
-    port: 5672
-    username: tomcat
-    password: 80201288
-    virtual-host: MsgCenter
-
-listeningQueue: DeviceMsgQueue
-
-storageExchange:
-    name: CacheStorageExchange
-    queue: CacheStorageQueue
-    routingkey: CacheStorage
-
+    type: ehcache
+    ehcache:
+      config: ehcache.xml
 devicefocus:
   setting:
   -
-    power: 1
-    media: 2
-    item1: bentipaiyanwendu
-    item2: EE
-    item3: FF
+    power: 0
+    media: 0
+    item1: lushuiwendu
+    item2: jishuiwendu
+    item3: zhengqiyali
   -
     power: 1
     media: 1
-    item1: DDD
-    item2: EEE
-    item3: FFF
+    item1: zhengqiyali
+    item2: chukouyali
+    item3: rukouyali

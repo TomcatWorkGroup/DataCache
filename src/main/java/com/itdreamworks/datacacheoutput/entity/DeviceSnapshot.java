@@ -30,7 +30,8 @@ public class DeviceSnapshot {
     }
 
     private String nickName;
-    private int focusItem1, focusItem2, focusItem3;
+    public int focusItem1, focusItem2, focusItem3;
+    public String focusItem1Text, focusItem2Text, focusItem3Text;
     private Date comeDate;
     //燃料类型
     private int power;
@@ -148,7 +149,7 @@ public class DeviceSnapshot {
     public static List<DeviceSnapshot> getDeviceSnapshotList(List<Device> devices){
         ArrayList<DeviceSnapshot> ls = new ArrayList<>(devices.size());
         for (Device d : devices){
-            ls.add(d.getSnapshot());
+            ls.add(DeviceSnapshot.getDeviceSnapshot(d));
         }
         return ls;
     }
@@ -174,6 +175,9 @@ public class DeviceSnapshot {
         snapshot.focusItem1 = device.getFocusItem1();
         snapshot.focusItem2 = device.getFocusItem2();
         snapshot.focusItem3 = device.getFocusItem3();
+        snapshot.focusItem1Text = device.getFocusItem1Text();
+        snapshot.focusItem2Text = device.getFocusItem2Text();
+        snapshot.focusItem3Text = device.getFocusItem3Text();
         snapshot.alarm = device.getAlarmCount();
         snapshot.error = device.getErrorCount();
         return snapshot;

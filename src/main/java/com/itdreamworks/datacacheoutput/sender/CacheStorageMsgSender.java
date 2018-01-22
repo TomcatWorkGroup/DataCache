@@ -26,7 +26,7 @@ public class CacheStorageMsgSender implements RabbitTemplate.ConfirmCallback, Ra
     public void send(String msg){
         if(null == msg || msg.isEmpty())
             return;
-        rabbitTemplate.convertAndSend(storageExchange.getName(),storageExchange.getRoutingkey(),"msg");
+        rabbitTemplate.convertAndSend(storageExchange.getName(),storageExchange.getRoutingkey(),msg);
     }
 
     @Override

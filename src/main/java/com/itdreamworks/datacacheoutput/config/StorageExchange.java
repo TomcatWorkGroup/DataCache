@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "mq.storageExchange")
+@ConfigurationProperties(prefix = "storageExchange")
 public class StorageExchange {
     private String name;
     private String queue;

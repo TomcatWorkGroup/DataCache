@@ -1,0 +1,16 @@
+romteurl: http://www.baidu.com
+
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: tomcat
+    password: 80201288
+    virtual-host: MsgCenter
+
+listeningQueue: DeviceMsgQueue
+
+storageExchange:
+    name: CacheStorageExchange
+    queue: CacheStorageQueue
+    routingkey: CacheStorage

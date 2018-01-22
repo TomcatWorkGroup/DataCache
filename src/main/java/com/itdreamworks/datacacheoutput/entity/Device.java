@@ -1,13 +1,25 @@
 package com.itdreamworks.datacacheoutput.entity;
 
+import com.itdreamworks.datacacheoutput.annotation.Title;
 import com.itdreamworks.datacacheoutput.config.DeviceFocusConfig;
 import com.itdreamworks.datacacheoutput.config.SettingConfig;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.util.Date;
 
 public class Device implements Serializable {
     public static final String KEY_DEVICE_NO = "deviceNo";
+    public static final String KEY_NICK_NAME = "nickName";
+
+    public static final int POWER_GAS = 0;
+    public static final int POWER_ELECTRIC = 1;
+    public static final int POWER_COAL = 2;
+    public static final int POWER_BIOMASS = 3;
+
+    public static final int MEDIA_WATER = 0;
+    public static final int MEDIA_STEAM = 1;
+    public static final int MEDIA_OIL = 2;
     //region ----------设备固定参数---------
     //设备编号
     private String deviceNo;
@@ -32,6 +44,7 @@ public class Device implements Serializable {
     //endregion
     //region ----------设备设定参数相关属性----------
     //燃料类型
+    @Title(value = "")
     private int power;
 
     /**
@@ -53,6 +66,7 @@ public class Device implements Serializable {
     }
 
     //介质类型
+    @Title(value = "")
     private int media;
 
     /**
@@ -74,6 +88,7 @@ public class Device implements Serializable {
     }
 
     //运行状态
+    @Title(value = "")
     private int runstatus;
 
     /**
@@ -95,6 +110,7 @@ public class Device implements Serializable {
     }
 
     //排烟温度,单位："℃"
+    @Title(value = "")
     private int paiyanwenduSetting;
 
     /**
@@ -116,6 +132,7 @@ public class Device implements Serializable {
     }
 
     //报警温度,单位："℃"
+    @Title(value = "")
     private int baojingwenduSetting;
 
     /**
@@ -137,6 +154,7 @@ public class Device implements Serializable {
     }
 
     //停炉温度,单位："℃"
+    @Title(value = "")
     private int tingluwenduSetting;
 
     /**
@@ -158,6 +176,7 @@ public class Device implements Serializable {
     }
 
     //目标温度,单位："℃"
+    @Title(value = "")
     private int mubiaowenduSetting;
 
     /**
@@ -179,6 +198,7 @@ public class Device implements Serializable {
     }
 
     //启炉温度,单位："℃"
+    @Title(value = "")
     private int qiluwenduSetting;
 
     /**
@@ -200,6 +220,7 @@ public class Device implements Serializable {
     }
 
     //转火回差,单位："℃"
+    @Title(value = "")
     private int zhuanhuohuichaSetting;
 
     /**
@@ -221,6 +242,7 @@ public class Device implements Serializable {
     }
 
     //启炉回差,单位："℃"
+    @Title(value = "")
     private int qiluhuichaSetting;
 
     /**
@@ -242,6 +264,7 @@ public class Device implements Serializable {
     }
 
     //开泵温度,单位："℃"
+    @Title(value = "")
     private int kaibengwenduSetting;
 
     /**
@@ -263,6 +286,7 @@ public class Device implements Serializable {
     }
 
     //关泵温度,单位："℃"
+    @Title(value = "")
     private int guanbengwenduSetting;
 
     /**
@@ -284,6 +308,7 @@ public class Device implements Serializable {
     }
 
     //报警压力,单位："MPa"
+    @Title(value = "")
     private int baojingyaliSetting;
 
     /**
@@ -305,6 +330,7 @@ public class Device implements Serializable {
     }
 
     //停炉压力,单位："MPa"
+    @Title(value = "")
     private int tingluyaliSetting;
 
     /**
@@ -326,6 +352,7 @@ public class Device implements Serializable {
     }
 
     //目标压力,单位："MPa"
+    @Title(value = "")
     private int mubiaoyaliSetting;
 
     /**
@@ -347,6 +374,7 @@ public class Device implements Serializable {
     }
 
     //启炉压力,单位："MPa"
+    @Title(value = "")
     private int qiluyaliSetting;
 
     /**
@@ -368,6 +396,7 @@ public class Device implements Serializable {
     }
 
     //转火回差压力,单位："MPa"
+    @Title(value = "")
     private int zhuanhuohuichayaliSetting;
 
     /**
@@ -389,6 +418,7 @@ public class Device implements Serializable {
     }
 
     //启炉回差压力,单位："MPa"
+    @Title(value = "")
     private int qiluhuichayaliSetting;
 
     /**
@@ -410,6 +440,7 @@ public class Device implements Serializable {
     }
 
     //前延时,单位："秒"
+    @Title(value = "")
     private int qianyanshiSetting;
 
     /**
@@ -431,6 +462,7 @@ public class Device implements Serializable {
     }
 
     //后延时,单位："秒"
+    @Title(value = "")
     private int houyanshiSetting;
 
     /**
@@ -452,6 +484,7 @@ public class Device implements Serializable {
     }
 
     //前吹扫,单位："秒"
+    @Title(value = "")
     private int qianchuisaoSetting;
 
     /**
@@ -473,6 +506,7 @@ public class Device implements Serializable {
     }
 
     //后吹扫,单位："秒"
+    @Title(value = "")
     private int houchuisaoSetting;
 
     /**
@@ -494,6 +528,7 @@ public class Device implements Serializable {
     }
 
     //炉壁报警温度,单位："℃"
+    @Title(value = "")
     private int lubibaojingwenduSetting;
 
     /**
@@ -515,6 +550,7 @@ public class Device implements Serializable {
     }
 
     //炉膛出口报警温度,单位："℃"
+    @Title(value = "")
     private int lutangchukoubaojingwenduSetting;
 
     /**
@@ -536,6 +572,7 @@ public class Device implements Serializable {
     }
 
     //保护温度,单位："℃"
+    @Title(value = "")
     private int baohuwenduSetting;
 
     /**
@@ -557,6 +594,7 @@ public class Device implements Serializable {
     }
 
     //本体排烟温度报警值,单位："℃"
+    @Title(value = "")
     private int bentipaiyanwendubaojingzhiSetting;
 
     /**
@@ -578,6 +616,7 @@ public class Device implements Serializable {
     }
 
     //启动时间1
+    @Title(value = "")
     private int qidongshijian1Setting;
 
     /**
@@ -599,6 +638,7 @@ public class Device implements Serializable {
     }
 
     //停止时间1
+    @Title(value = "")
     private int tingzhishijian1Setting;
 
     /**
@@ -620,6 +660,7 @@ public class Device implements Serializable {
     }
 
     //启动时间2
+    @Title(value = "")
     private int qidongshijian2Setting;
 
     /**
@@ -641,6 +682,7 @@ public class Device implements Serializable {
     }
 
     //停止时间2
+    @Title(value = "")
     private int tingzhishijian2Setting;
 
     /**
@@ -662,6 +704,7 @@ public class Device implements Serializable {
     }
 
     //启动时间3
+    @Title(value = "")
     private int qidongshijian3Setting;
 
     /**
@@ -683,6 +726,7 @@ public class Device implements Serializable {
     }
 
     //停止时间3
+    @Title(value = "")
     private int tingzhishijian3Setting;
 
     /**
@@ -704,6 +748,7 @@ public class Device implements Serializable {
     }
 
     //启动时间4
+    @Title(value = "")
     private int qidongshijian4Setting;
 
     /**
@@ -725,6 +770,7 @@ public class Device implements Serializable {
     }
 
     //停止时间4
+    @Title(value = "")
     private int tingzhishijian4Setting;
 
     /**
@@ -746,6 +792,7 @@ public class Device implements Serializable {
     }
 
     //启动时间5
+    @Title(value = "")
     private int qidongshijian5Setting;
 
     /**
@@ -767,6 +814,7 @@ public class Device implements Serializable {
     }
 
     //停止时间5
+    @Title(value = "")
     private int tingzhishijian5Setting;
 
     /**
@@ -788,6 +836,7 @@ public class Device implements Serializable {
     }
 
     //启动时间6
+    @Title(value = "")
     private int qidongshijian6Setting;
 
     /**
@@ -809,6 +858,7 @@ public class Device implements Serializable {
     }
 
     //停止时间6
+    @Title(value = "")
     private int tingzhishijian6Setting;
 
     /**
@@ -832,8 +882,10 @@ public class Device implements Serializable {
     //endregion
     //region----------设备运行时间(运行状态)----------
     //设备运行天数
+    @Title(value = "设备运行天数")
     private int runDays;
     //设备运行小时数
+    @Title(value = "设备运行小时数")
     private int runHours;
 
     public int getRunDays() {
@@ -856,6 +908,7 @@ public class Device implements Serializable {
     //endregion
     //region ----------设备报警信息相关属性(运行状态)----------
     //排烟温度高
+    @Title(value = "排烟温度高")
     private int paiyanwendugao;
 
     /**
@@ -877,6 +930,7 @@ public class Device implements Serializable {
     }
 
     //炉水温度高
+    @Title(value = "炉水温度高")
     private int lushuiwendugao;
 
     /**
@@ -898,6 +952,7 @@ public class Device implements Serializable {
     }
 
     //出口温度高
+    @Title(value = "出口温度高")
     private int chukouwendugao;
 
     /**
@@ -919,6 +974,7 @@ public class Device implements Serializable {
     }
 
     //超压
+    @Title(value = "超压")
     private int chaoya;
 
     /**
@@ -940,6 +996,7 @@ public class Device implements Serializable {
     }
 
     //极限低水位
+    @Title(value = "极限低水位")
     private int jixiandishuiwei;
 
     /**
@@ -961,6 +1018,7 @@ public class Device implements Serializable {
     }
 
     //低水位
+    @Title(value = "")
     private int dishuiwei;
 
     /**
@@ -982,6 +1040,7 @@ public class Device implements Serializable {
     }
 
     //高水位
+    @Title(value = "高水位")
     private int gaoshuiwei;
 
     /**
@@ -1003,6 +1062,7 @@ public class Device implements Serializable {
     }
 
     //水位信号逻辑错
+    @Title(value = "水位信号逻辑错")
     private int shuiweixinhaoluojicuo;
 
     /**
@@ -1024,6 +1084,7 @@ public class Device implements Serializable {
     }
 
     //炉壁温度高
+    @Title(value = "炉壁温度高")
     private int lubiwendugao;
 
     /**
@@ -1045,6 +1106,7 @@ public class Device implements Serializable {
     }
 
     //负压蒸汽温度高
+    @Title(value = "负压蒸汽温度高")
     private int fuyazhengqiwendugao;
 
     /**
@@ -1066,6 +1128,7 @@ public class Device implements Serializable {
     }
 
     //燃烧器故障
+    @Title(value = "燃烧器故障")
     private int ranshaoqiguzhang;
 
     /**
@@ -1087,6 +1150,7 @@ public class Device implements Serializable {
     }
 
     //燃气泄漏
+    @Title(value = "燃气泄漏")
     private int ranqixielou;
 
     /**
@@ -1108,6 +1172,7 @@ public class Device implements Serializable {
     }
 
     //燃气压力低
+    @Title(value = "燃气压力低")
     private int ranqiyalidi;
 
     /**
@@ -1129,6 +1194,7 @@ public class Device implements Serializable {
     }
 
     //燃气压力异常
+    @Title(value = "燃气压力异常")
     private int ranqiyaliyichang;
 
     /**
@@ -1150,6 +1216,7 @@ public class Device implements Serializable {
     }
 
     //燃气压力高
+    @Title(value = "燃气压力高")
     private int ranqiyaligao;
 
     /**
@@ -1171,6 +1238,7 @@ public class Device implements Serializable {
     }
 
     //给水变频器故障
+    @Title(value = "给水变频器故障")
     private int jishuibianpinqiguzhang;
 
     /**
@@ -1192,6 +1260,7 @@ public class Device implements Serializable {
     }
 
     //循环变频器故障
+    @Title(value = "循环变频器故障")
     private int xunhuanbianpinqiguzhang;
 
     /**
@@ -1213,6 +1282,7 @@ public class Device implements Serializable {
     }
 
     //引风变频器故障
+    @Title(value = "引风变频器故障")
     private int yinfengbianpinqiguzhang;
 
     /**
@@ -1234,6 +1304,7 @@ public class Device implements Serializable {
     }
 
     //鼓风变频器故障
+    @Title(value = "鼓风变频器故障")
     private int gufengbianpinqiguzhang;
 
     /**
@@ -1255,6 +1326,7 @@ public class Device implements Serializable {
     }
 
     //二次鼓风变频器故障
+    @Title(value = "二次鼓风变频器故障")
     private int ecigufengbianpinqiguzhang;
 
     /**
@@ -1276,6 +1348,7 @@ public class Device implements Serializable {
     }
 
     //炉排变频器故障
+    @Title(value = "炉排变频器故障")
     private int lupaibianpinqiguzhang;
 
     /**
@@ -1297,6 +1370,7 @@ public class Device implements Serializable {
     }
 
     //给水泵故障
+    @Title(value = "给水泵故障")
     private int jishuibengguzhang;
 
     /**
@@ -1318,6 +1392,7 @@ public class Device implements Serializable {
     }
 
     //循环泵故障
+    @Title(value = "循环泵故障")
     private int xunhuanbengguzhang;
 
     /**
@@ -1339,6 +1414,7 @@ public class Device implements Serializable {
     }
 
     //循环系统欠压
+    @Title(value = "循环系统欠压")
     private int xunhuanxitongqianya;
 
     /**
@@ -1360,6 +1436,7 @@ public class Device implements Serializable {
     }
 
     //低电压
+    @Title(value = "低电压")
     private int didianya;
 
     /**
@@ -1381,6 +1458,7 @@ public class Device implements Serializable {
     }
 
     //高电压
+    @Title(value = "高电压")
     private int gaodianya;
 
     /**
@@ -1402,6 +1480,7 @@ public class Device implements Serializable {
     }
 
     //缺相
+    @Title(value = "缺相")
     private int quexiang;
 
     /**
@@ -1423,6 +1502,7 @@ public class Device implements Serializable {
     }
 
     //漏电
+    @Title(value = "漏电")
     private int loudian;
 
     /**
@@ -1444,6 +1524,7 @@ public class Device implements Serializable {
     }
 
     //变送器过压保护
+    @Title(value = "变送器过压保护")
     private int biansongqiguoyabaohu;
 
     /**
@@ -1465,6 +1546,7 @@ public class Device implements Serializable {
     }
 
     //关键参数异常
+    @Title(value = "关键参数异常")
     private int guanjiancanshuyichang;
 
     /**
@@ -1486,6 +1568,7 @@ public class Device implements Serializable {
     }
 
     //设定参数异常
+    @Title(value = "设定参数异常")
     private int shedingcanshuyichang;
 
     /**
@@ -1507,6 +1590,7 @@ public class Device implements Serializable {
     }
 
     //时钟故障
+    @Title(value = "时钟故障")
     private int shizhongguzhang;
 
     /**
@@ -1528,6 +1612,7 @@ public class Device implements Serializable {
     }
 
     //存储器故障
+    @Title(value = "存储器故障")
     private int cunchuqiguzhang;
 
     /**
@@ -1549,6 +1634,7 @@ public class Device implements Serializable {
     }
 
     //外部连锁
+    @Title(value = "外部连锁")
     private int waibuliansuo;
 
     /**
@@ -1570,6 +1656,7 @@ public class Device implements Serializable {
     }
 
     //缺油
+    @Title(value = "缺油")
     private int queyou;
 
     /**
@@ -1591,6 +1678,7 @@ public class Device implements Serializable {
     }
 
     //低油位
+    @Title(value = "低油位")
     private int diyouwei;
 
     /**
@@ -1612,6 +1700,7 @@ public class Device implements Serializable {
     }
 
     //本体排烟温度高
+    @Title(value = "本体排烟温度高")
     private int bentipaiyanwendugao;
 
     /**
@@ -1635,6 +1724,7 @@ public class Device implements Serializable {
     //endregion
     //region ----------设备故障信息相关属性(运行状态)----------
     //本体排烟温度传感器故障
+    @Title(value = "本体排烟温度传感器故障")
     private int bentipaiyanwenduerror;
 
     /**
@@ -1656,6 +1746,7 @@ public class Device implements Serializable {
     }
 
     //排烟温度传感器故障
+    @Title(value = "排烟温度传感器故障")
     private int paiyanwenduerror;
 
     /**
@@ -1677,6 +1768,7 @@ public class Device implements Serializable {
     }
 
     //炉水温度传感器故障
+    @Title(value = "炉水温度传感器故障")
     private int lushuiwenduerror;
 
     /**
@@ -1698,6 +1790,7 @@ public class Device implements Serializable {
     }
 
     //出口温度传感器故障
+    @Title(value = "出口温度传感器故障")
     private int chukouwenduerror;
 
     /**
@@ -1719,6 +1812,7 @@ public class Device implements Serializable {
     }
 
     //入口温度传感器故障
+    @Title(value = "入口温度传感器故障")
     private int rukouwenduerror;
 
     /**
@@ -1740,6 +1834,7 @@ public class Device implements Serializable {
     }
 
     //节能器出口温度传感器故障
+    @Title(value = "节能器出口温度传感器故障")
     private int jienengqichukouwenduerror;
 
     /**
@@ -1761,6 +1856,7 @@ public class Device implements Serializable {
     }
 
     //节能器入口温度传感器故障
+    @Title(value = "节能器入口温度传感器故障")
     private int jienengqirukouwenduerror;
 
     /**
@@ -1782,6 +1878,7 @@ public class Device implements Serializable {
     }
 
     //给水温度传感器故障
+    @Title(value = "给水温度传感器故障")
     private int jishuiwenduerror;
 
     /**
@@ -1803,6 +1900,7 @@ public class Device implements Serializable {
     }
 
     //炉膛温度传感器故障
+    @Title(value = "炉膛温度传感器故障")
     private int lutangwenduerror;
 
     /**
@@ -1824,6 +1922,7 @@ public class Device implements Serializable {
     }
 
     //炉膛出口温度传感器故障
+    @Title(value = "炉膛出口温度传感器故障")
     private int lutangchukouwenduerror;
 
     /**
@@ -1845,6 +1944,7 @@ public class Device implements Serializable {
     }
 
     //炉壁温度传感器故障
+    @Title(value = "炉壁温度传感器故障")
     private int lubiwenduerror;
 
     /**
@@ -1866,6 +1966,7 @@ public class Device implements Serializable {
     }
 
     //燃料温度传感器故障
+    @Title(value = "燃料温度传感器故障")
     private int ranliaowenduerror;
 
     /**
@@ -1887,6 +1988,7 @@ public class Device implements Serializable {
     }
 
     //空预器出口热风温度传感器故障
+    @Title(value = "空预器出口热风温度传感器故障")
     private int kongyuqichukourefengwenduerror;
 
     /**
@@ -1908,6 +2010,7 @@ public class Device implements Serializable {
     }
 
     //负压蒸汽温度传感器故障
+    @Title(value = "负压蒸汽温度传感器故障")
     private int fuyazhengqiwenduerror;
 
     /**
@@ -1929,6 +2032,7 @@ public class Device implements Serializable {
     }
 
     //过热蒸汽温度传感器故障
+    @Title(value = "过热蒸汽温度传感器故障")
     private int guorezhengqiwenduerror;
 
     /**
@@ -1950,6 +2054,7 @@ public class Device implements Serializable {
     }
 
     //回路1温度传感器故障
+    @Title(value = "回路1温度传感器故障")
     private int huilu1wenduerror;
 
     /**
@@ -1971,6 +2076,7 @@ public class Device implements Serializable {
     }
 
     //回路2温度传感器故障
+    @Title(value = "回路2温度传感器故障")
     private int huilu2wenduerror;
 
     /**
@@ -1992,6 +2098,7 @@ public class Device implements Serializable {
     }
 
     //回路3温度传感器故障
+    @Title(value = "回路3温度传感器故障")
     private int huilu3wenduerror;
 
     /**
@@ -2013,6 +2120,7 @@ public class Device implements Serializable {
     }
 
     //回路4温度传感器故障
+    @Title(value = "回路4温度传感器故障")
     private int huilu4wenduerror;
 
     /**
@@ -2034,6 +2142,7 @@ public class Device implements Serializable {
     }
 
     //回路5温度传感器故障
+    @Title(value = "回路5温度传感器故障")
     private int huilu5wenduerror;
 
     /**
@@ -2055,6 +2164,7 @@ public class Device implements Serializable {
     }
 
     //室外温度传感器故障
+    @Title(value = "室外温度传感器故障")
     private int shiwaiwenduerror;
 
     /**
@@ -2076,6 +2186,7 @@ public class Device implements Serializable {
     }
 
     //蒸汽压力传感器故障
+    @Title(value = "蒸汽压力传感器故障")
     private int zhengqiyalierror;
 
     /**
@@ -2097,6 +2208,7 @@ public class Device implements Serializable {
     }
 
     //给水压力传感器故障
+    @Title(value = "给水压力传感器故障")
     private int jishuiyalierror;
 
     /**
@@ -2118,6 +2230,7 @@ public class Device implements Serializable {
     }
 
     //出口压力传感器故障
+    @Title(value = "出口压力传感器故障")
     private int chukouyalierror;
 
     /**
@@ -2139,6 +2252,7 @@ public class Device implements Serializable {
     }
 
     //入口压力传感器故障
+    @Title(value = "入口压力传感器故障")
     private int rukouyalierror;
 
     /**
@@ -2160,6 +2274,7 @@ public class Device implements Serializable {
     }
 
     //炉膛压力传感器故障
+    @Title(value = "炉膛压力传感器故障")
     private int lutangyalierror;
 
     /**
@@ -2181,6 +2296,7 @@ public class Device implements Serializable {
     }
 
     //炉膛出口压力传感器故障
+    @Title(value = "炉膛出口压力传感器故障")
     private int lutangchukouyalierror;
 
     /**
@@ -2202,6 +2318,7 @@ public class Device implements Serializable {
     }
 
     //燃气压力传感器故障
+    @Title(value = "燃气压力传感器故障")
     private int ranqiyalierror;
 
     /**
@@ -2223,6 +2340,7 @@ public class Device implements Serializable {
     }
 
     //一次风压传感器故障
+    @Title(value = "一次风压传感器故障")
     private int yicifengyaerror;
 
     /**
@@ -2244,6 +2362,7 @@ public class Device implements Serializable {
     }
 
     //二次风压传感器故障
+    @Title(value = "二次风压传感器故障")
     private int ecifengyaerror;
 
     /**
@@ -2265,6 +2384,7 @@ public class Device implements Serializable {
     }
 
     //瞬时燃料量传感器故障
+    @Title(value = "瞬时燃料量传感器故障")
     private int shunshiranliaoliangerror;
 
     /**
@@ -2286,6 +2406,7 @@ public class Device implements Serializable {
     }
 
     //瞬时蒸汽流量传感器故障
+    @Title(value = "瞬时蒸汽流量传感器故障")
     private int shunshizhengqiliuliangerror;
 
     /**
@@ -2307,6 +2428,7 @@ public class Device implements Serializable {
     }
 
     //瞬时给水流量传感器故障
+    @Title(value = "瞬时给水流量传感器故障")
     private int shunshijishuiliuliangerror;
 
     /**
@@ -2328,6 +2450,7 @@ public class Device implements Serializable {
     }
 
     //瞬时循环流量传感器故障
+    @Title(value = "瞬时循环流量传感器故障")
     private int shunshixunhuanliuliangerror;
 
     /**
@@ -2349,6 +2472,7 @@ public class Device implements Serializable {
     }
 
     //瞬时补水流量传感器故障
+    @Title(value = "瞬时补水流量传感器故障")
     private int shunshibushuiliuliangerror;
 
     /**
@@ -2370,6 +2494,7 @@ public class Device implements Serializable {
     }
 
     //锅炉液位传感器故障
+    @Title(value = "锅炉液位传感器故障")
     private int guoluyeweierror;
 
     /**
@@ -2391,6 +2516,7 @@ public class Device implements Serializable {
     }
 
     //水箱液位传感器故障
+    @Title(value = "")
     private int shuixiangyeweierror;
 
     /**
@@ -2412,6 +2538,7 @@ public class Device implements Serializable {
     }
 
     //排烟氧含量传感器故障
+    @Title(value = "")
     private int paiyanyanghanliangerror;
 
     /**
@@ -2433,6 +2560,7 @@ public class Device implements Serializable {
     }
 
     //炉排速度反馈传感器故障
+    @Title(value = "")
     private int lupaisudufankuierror;
 
     /**
@@ -2454,6 +2582,7 @@ public class Device implements Serializable {
     }
 
     //引风输出反馈传感器故障
+    @Title(value = "")
     private int yinfengshuchufankuierror;
 
     /**
@@ -2475,6 +2604,7 @@ public class Device implements Serializable {
     }
 
     //鼓风输出反馈传感器故障
+    @Title(value = "")
     private int gufengshuchufankuierror;
 
     /**
@@ -2496,6 +2626,7 @@ public class Device implements Serializable {
     }
 
     //给水输出反馈传感器故障
+    @Title(value = "")
     private int jishuishuchufankuierror;
 
     /**
@@ -2519,6 +2650,7 @@ public class Device implements Serializable {
     //endregion
     //region ----------设备监控模拟量属性(运行状态)----------
     //本体排烟温度,单位："℃"
+    @Title(value = "本体排烟温度")
     private int bentipaiyanwendu;
 
     /**
@@ -2540,6 +2672,7 @@ public class Device implements Serializable {
     }
 
     //排烟温度,单位："℃"
+    @Title(value = "排烟温度")
     private int paiyanwendu;
 
     /**
@@ -2561,6 +2694,7 @@ public class Device implements Serializable {
     }
 
     //炉水温度,单位："℃"
+    @Title(value = "炉水温度")
     private int lushuiwendu;
 
     /**
@@ -2582,6 +2716,7 @@ public class Device implements Serializable {
     }
 
     //出口温度,单位："℃"
+    @Title(value = "出口温度")
     private int chukouwendu;
 
     /**
@@ -2603,6 +2738,7 @@ public class Device implements Serializable {
     }
 
     //入口温度,单位："℃"
+    @Title(value = "入口温度")
     private int rukouwendu;
 
     /**
@@ -2624,6 +2760,7 @@ public class Device implements Serializable {
     }
 
     //节能器出口温度,单位："℃"
+    @Title(value = "节能器出口温度")
     private int jienengqichukouwendu;
 
     /**
@@ -2645,6 +2782,7 @@ public class Device implements Serializable {
     }
 
     //节能器入口温度,单位："℃"
+    @Title(value = "节能器入口温度")
     private int jienengqirukouwendu;
 
     /**
@@ -2666,6 +2804,7 @@ public class Device implements Serializable {
     }
 
     //给水温度,单位："℃"
+    @Title(value = "给水温度")
     private int jishuiwendu;
 
     /**
@@ -2687,6 +2826,7 @@ public class Device implements Serializable {
     }
 
     //炉膛温度,单位："℃"
+    @Title(value = "炉膛温度")
     private int lutangwendu;
 
     /**
@@ -2708,6 +2848,7 @@ public class Device implements Serializable {
     }
 
     //炉膛出口温度,单位："℃"
+    @Title(value = "炉膛出口温度")
     private int lutangchukouwendu;
 
     /**
@@ -2729,6 +2870,7 @@ public class Device implements Serializable {
     }
 
     //炉壁温度,单位："℃"
+    @Title(value = "炉壁温度")
     private int lubiwendu;
 
     /**
@@ -2750,6 +2892,7 @@ public class Device implements Serializable {
     }
 
     //燃料温度,单位："℃"
+    @Title(value = "燃料温度")
     private int ranliaowendu;
 
     /**
@@ -2771,6 +2914,7 @@ public class Device implements Serializable {
     }
 
     //空预器出口热风温度,单位："℃"
+    @Title(value = "空预器出口热风温度")
     private int kongyuqichukourefengwendu;
 
     /**
@@ -2792,6 +2936,7 @@ public class Device implements Serializable {
     }
 
     //负压蒸汽温度,单位："℃"
+    @Title(value = "负压蒸汽温度")
     private int fuyazhengqiwendu;
 
     /**
@@ -2813,6 +2958,7 @@ public class Device implements Serializable {
     }
 
     //过热蒸汽温度,单位："℃"
+    @Title(value = "过热蒸汽温度")
     private int guorezhengqiwendu;
 
     /**
@@ -2834,6 +2980,7 @@ public class Device implements Serializable {
     }
 
     //回路1温度,单位："℃"
+    @Title(value = "回路1温度")
     private int huilu1wendu;
 
     /**
@@ -2855,6 +3002,7 @@ public class Device implements Serializable {
     }
 
     //回路2温度,单位："℃"
+    @Title(value = "回路2温度")
     private int huilu2wendu;
 
     /**
@@ -2876,6 +3024,7 @@ public class Device implements Serializable {
     }
 
     //回路3温度,单位："℃"
+    @Title(value = "回路3温度")
     private int huilu3wendu;
 
     /**
@@ -2897,6 +3046,7 @@ public class Device implements Serializable {
     }
 
     //回路4温度,单位："℃"
+    @Title(value = "回路4温度")
     private int huilu4wendu;
 
     /**
@@ -2918,6 +3068,7 @@ public class Device implements Serializable {
     }
 
     //回路5温度,单位："℃"
+    @Title(value = "回路5温度")
     private int huilu5wendu;
 
     /**
@@ -2939,6 +3090,7 @@ public class Device implements Serializable {
     }
 
     //室外温度,单位："℃"
+    @Title(value = "室外温度")
     private int shiwaiwendu;
 
     /**
@@ -2960,6 +3112,7 @@ public class Device implements Serializable {
     }
 
     //蒸汽压力,单位："MPa"
+    @Title(value = "蒸汽压力")
     private int zhengqiyali;
 
     /**
@@ -2981,6 +3134,7 @@ public class Device implements Serializable {
     }
 
     //给水压力,单位："MPa"
+    @Title(value = "给水压力")
     private int jishuiyali;
 
     /**
@@ -3002,6 +3156,7 @@ public class Device implements Serializable {
     }
 
     //出口压力,单位："MPa"
+    @Title(value = "出口压力")
     private int chukouyali;
 
     /**
@@ -3023,6 +3178,7 @@ public class Device implements Serializable {
     }
 
     //入口压力,单位："MPa"
+    @Title(value = "入口压力")
     private int rukouyali;
 
     /**
@@ -3044,6 +3200,7 @@ public class Device implements Serializable {
     }
 
     //炉膛压力,单位："Pa"
+    @Title(value = "炉膛压力")
     private int lutangyali;
 
     /**
@@ -3065,6 +3222,7 @@ public class Device implements Serializable {
     }
 
     //炉膛出口压力,单位："Pa"
+    @Title(value = "炉膛出口压力")
     private int lutangchukouyali;
 
     /**
@@ -3086,6 +3244,7 @@ public class Device implements Serializable {
     }
 
     //燃气压力,单位："kPa"
+    @Title(value = "燃气压力")
     private int ranqiyali;
 
     /**
@@ -3107,6 +3266,7 @@ public class Device implements Serializable {
     }
 
     //一次风压,单位："kPa"
+    @Title(value = "一次风压")
     private int yicifengya;
 
     /**
@@ -3128,6 +3288,7 @@ public class Device implements Serializable {
     }
 
     //二次风压,单位："kPa"
+    @Title(value = "二次风压")
     private int ecifengya;
 
     /**
@@ -3149,6 +3310,7 @@ public class Device implements Serializable {
     }
 
     //瞬时燃料量
+    @Title(value = "瞬时燃料量")
     private int shunshiranliaoliang;
 
     /**
@@ -3170,6 +3332,7 @@ public class Device implements Serializable {
     }
 
     //瞬时蒸汽流量
+    @Title(value = "瞬时蒸汽流量")
     private int shunshizhengqiliuliang;
 
     /**
@@ -3191,6 +3354,7 @@ public class Device implements Serializable {
     }
 
     //瞬时给水流量
+    @Title(value = "瞬时给水流量")
     private int shunshijishuiliuliang;
 
     /**
@@ -3212,6 +3376,7 @@ public class Device implements Serializable {
     }
 
     //瞬时循环流量
+    @Title(value = "瞬时循环流量")
     private int shunshixunhuanliuliang;
 
     /**
@@ -3233,6 +3398,7 @@ public class Device implements Serializable {
     }
 
     //瞬时补水流量
+    @Title(value = "瞬时补水流量")
     private int shunshibushuiliuliang;
 
     /**
@@ -3254,6 +3420,7 @@ public class Device implements Serializable {
     }
 
     //锅炉液位,单位："mm"
+    @Title(value = "锅炉液位")
     private int guoluyewei;
 
     /**
@@ -3275,6 +3442,7 @@ public class Device implements Serializable {
     }
 
     //水箱液位,单位："mm"
+    @Title(value = "水箱液位")
     private int shuixiangyewei;
 
     /**
@@ -3296,6 +3464,7 @@ public class Device implements Serializable {
     }
 
     //排烟氧含量,单位："%"
+    @Title(value = "排烟氧含量")
     private int paiyanyanghanliang;
 
     /**
@@ -3317,6 +3486,7 @@ public class Device implements Serializable {
     }
 
     //炉排速度反馈,单位："%"
+    @Title(value = "炉排速度反馈")
     private int lupaisudufankui;
 
     /**
@@ -3338,6 +3508,7 @@ public class Device implements Serializable {
     }
 
     //引风输出反馈,单位："%"
+    @Title(value = "引风输出反馈")
     private int yinfengshuchufankui;
 
     /**
@@ -3359,6 +3530,7 @@ public class Device implements Serializable {
     }
 
     //鼓风输出反馈,单位："%"
+    @Title(value = "鼓风输出反馈")
     private int gufengshuchufankui;
 
     /**
@@ -3380,6 +3552,7 @@ public class Device implements Serializable {
     }
 
     //给水输出反馈,单位："%"
+    @Title(value = "给水输出反馈")
     private int jishuishuchufankui;
 
     /**
@@ -3401,6 +3574,7 @@ public class Device implements Serializable {
     }
 
     //燃烧输出量,单位："%"
+    @Title(value = "燃烧输出量")
     private int ranshaoshuchuliangSetting;
 
     /**
@@ -3422,6 +3596,7 @@ public class Device implements Serializable {
     }
 
     //循环输出量,单位："%"
+    @Title(value = "循环输出量")
     private int xunhuanshuchuliangSetting;
 
     /**
@@ -3443,6 +3618,7 @@ public class Device implements Serializable {
     }
 
     //给水输出量,单位："%"
+    @Title(value = "给水输出量")
     private int jishuishuchuliangSetting;
 
     /**
@@ -3464,6 +3640,7 @@ public class Device implements Serializable {
     }
 
     //引风输出量,单位："%"
+    @Title(value = "引风输出量")
     private int yinfengshuchuliangSetting;
 
     /**
@@ -3485,6 +3662,7 @@ public class Device implements Serializable {
     }
 
     //鼓风输出量,单位："%"
+    @Title(value = "鼓风输出量")
     private int gufengshuchuliangSetting;
 
     /**
@@ -3506,6 +3684,7 @@ public class Device implements Serializable {
     }
 
     //二次鼓风输出量,单位："%"
+    @Title(value = "二次鼓风输出量")
     private int ecigufengshuchuliangSetting;
 
     /**
@@ -3527,6 +3706,7 @@ public class Device implements Serializable {
     }
 
     //炉排或进料输出量,单位："%"
+    @Title(value = "炉排或进料输出量")
     private int lupaihuojinliaoshuchuliangSetting;
 
     /**
@@ -3550,6 +3730,7 @@ public class Device implements Serializable {
     //endregion
     //region ----------设备开关量属性(运行状态)----------
     //极限低水位报警电极（缺水保护）
+    @Title(value = "")
     private int jixiandishuiweibaojingdianji;
 
     /**
@@ -3576,6 +3757,7 @@ public class Device implements Serializable {
     }
 
     //低水位报警电极
+    @Title(value = "")
     private int dishuiweibaojingdianji;
 
     /**
@@ -3597,6 +3779,7 @@ public class Device implements Serializable {
     }
 
     //低水位电极
+    @Title(value = "")
     private int dishuiweidianji;
 
     /**
@@ -3618,6 +3801,7 @@ public class Device implements Serializable {
     }
 
     //中水位电极
+    @Title(value = "")
     private int zhongshuiweidianji;
 
     /**
@@ -3639,6 +3823,7 @@ public class Device implements Serializable {
     }
 
     //高水位电极
+    @Title(value = "")
     private int gaoshuiweidianji;
 
     /**
@@ -3660,6 +3845,7 @@ public class Device implements Serializable {
     }
 
     //高水位报警电极
+    @Title(value = "")
     private int gaoshuiweibaojingdianji;
 
     /**
@@ -3681,6 +3867,7 @@ public class Device implements Serializable {
     }
 
     //水箱低位电极
+    @Title(value = "")
     private int shuixiangdiweidianji;
 
     /**
@@ -3702,6 +3889,7 @@ public class Device implements Serializable {
     }
 
     //水箱高位电极
+    @Title(value = "")
     private int shuixianggaoweidianji;
 
     /**
@@ -3723,6 +3911,7 @@ public class Device implements Serializable {
     }
 
     //极限低液位报警信号（干接点）
+    @Title(value = "")
     private int jixiandiyeweibaojingxinhao;
 
     /**
@@ -3749,6 +3938,7 @@ public class Device implements Serializable {
     }
 
     //低报警信号（干接点）
+    @Title(value = "")
     private int dibaojingxinhao;
 
     /**
@@ -3775,6 +3965,7 @@ public class Device implements Serializable {
     }
 
     //控泵信号（干接点）
+    @Title(value = "")
     private int kongbengxinhao;
 
     /**
@@ -3801,6 +3992,7 @@ public class Device implements Serializable {
     }
 
     //高报警信号（干接点）
+    @Title(value = "")
     private int gaobaojingxinhao;
 
     /**
@@ -3827,6 +4019,7 @@ public class Device implements Serializable {
     }
 
     //超压报警信号
+    @Title(value = "")
     private int chaoyabaojingxinhao;
 
     /**
@@ -3848,6 +4041,7 @@ public class Device implements Serializable {
     }
 
     //负荷调节压力信号
+    @Title(value = "")
     private int fuhediaojieyalixinhao;
 
     /**
@@ -3869,6 +4063,7 @@ public class Device implements Serializable {
     }
 
     //启停控制压力信号
+    @Title(value = "")
     private int qitingkongzhiyalixinhao;
 
     /**
@@ -3890,6 +4085,7 @@ public class Device implements Serializable {
     }
 
     //压力表低针
+    @Title(value = "")
     private int yalibiaodizhen;
 
     /**
@@ -3911,6 +4107,7 @@ public class Device implements Serializable {
     }
 
     //压力表高针
+    @Title(value = "")
     private int yalibiaogaozhen;
 
     /**
@@ -3932,6 +4129,7 @@ public class Device implements Serializable {
     }
 
     //炉壁超温信号
+    @Title(value = "")
     private int lubichaowenxinhao;
 
     /**
@@ -3953,6 +4151,7 @@ public class Device implements Serializable {
     }
 
     //燃烧器故障报警信号
+    @Title(value = "")
     private int ranshaoqiguzhangbaojingxinhao;
 
     /**
@@ -3974,6 +4173,7 @@ public class Device implements Serializable {
     }
 
     //燃气泄漏报警信号
+    @Title(value = "")
     private int ranqixieloubaojingxinhao;
 
     /**
@@ -3995,6 +4195,7 @@ public class Device implements Serializable {
     }
 
     //燃气压力低报警信号
+    @Title(value = "")
     private int ranqiyalidibaojingxinhao;
 
     /**
@@ -4016,6 +4217,7 @@ public class Device implements Serializable {
     }
 
     //燃气压力异常报警信号
+    @Title(value = "")
     private int ranqiyaliyichangbaojingxinhao;
 
     /**
@@ -4037,6 +4239,7 @@ public class Device implements Serializable {
     }
 
     //燃气压力高报警信号
+    @Title(value = "")
     private int ranqiyaligaobaojingxinhao;
 
     /**
@@ -4058,6 +4261,7 @@ public class Device implements Serializable {
     }
 
     //循环泵动作反馈信号（主）
+    @Title(value = "")
     private int xunhuanbengdongzuofankuixinhao;
 
     /**
@@ -4084,6 +4288,7 @@ public class Device implements Serializable {
     }
 
     //循环泵动作反馈信号（备）
+    @Title(value = "")
     private int xunhuanbengdongzuofankuixinhaobei;
 
     /**
@@ -4110,6 +4315,7 @@ public class Device implements Serializable {
     }
 
     //给水泵动作反馈信号（主）
+    @Title(value = "")
     private int jishuibengdongzuofankuixinhao;
 
     /**
@@ -4136,6 +4342,7 @@ public class Device implements Serializable {
     }
 
     //给水泵动作反馈信号（备）
+    @Title(value = "")
     private int jishuibengdongzuofankuixinhaobei;
 
     /**
@@ -4162,6 +4369,7 @@ public class Device implements Serializable {
     }
 
     //引风机动作反馈信号
+    @Title(value = "")
     private int yinfengjidongzuofankuixinhao;
 
     /**
@@ -4183,6 +4391,7 @@ public class Device implements Serializable {
     }
 
     //鼓风机动作反馈信号
+    @Title(value = "")
     private int gufengjidongzuofankuixinhao;
 
     /**
@@ -4204,6 +4413,7 @@ public class Device implements Serializable {
     }
 
     //二次鼓风机动作反馈信号
+    @Title(value = "")
     private int ecigufengjidongzuofankuixinhao;
 
     /**
@@ -4225,6 +4435,7 @@ public class Device implements Serializable {
     }
 
     //出渣机动作反馈信号
+    @Title(value = "")
     private int chuzhajidongzuofankuixinhao;
 
     /**
@@ -4246,6 +4457,7 @@ public class Device implements Serializable {
     }
 
     //给水变频器故障信号
+    @Title(value = "")
     private int jishuibianpinqiguzhangxinhao;
 
     /**
@@ -4267,6 +4479,7 @@ public class Device implements Serializable {
     }
 
     //引风变频器故障信号
+    @Title(value = "")
     private int yinfengbianpinqiguzhangxinhao;
 
     /**
@@ -4288,6 +4501,7 @@ public class Device implements Serializable {
     }
 
     //鼓风变频器故障信号
+    @Title(value = "")
     private int gufengbianpinqiguzhangxinhao;
 
     /**
@@ -4309,6 +4523,7 @@ public class Device implements Serializable {
     }
 
     //炉排变频器故障信号
+    @Title(value = "")
     private int lupaibianpinqiguzhangxinhao;
 
     /**
@@ -4330,6 +4545,7 @@ public class Device implements Serializable {
     }
 
     //烟道蝶阀反馈信号
+    @Title(value = "")
     private int yandaodiefafankuixinhao;
 
     /**
@@ -4351,6 +4567,7 @@ public class Device implements Serializable {
     }
 
     //低电压报警信号
+    @Title(value = "")
     private int didianyabaojingxinhao;
 
     /**
@@ -4372,6 +4589,7 @@ public class Device implements Serializable {
     }
 
     //高电压报警信号
+    @Title(value = "")
     private int gaodianyabaojingxinhao;
 
     /**
@@ -4393,6 +4611,7 @@ public class Device implements Serializable {
     }
 
     //缺相报警信号
+    @Title(value = "")
     private int quexiangbaojingxinhao;
 
     /**
@@ -4414,6 +4633,7 @@ public class Device implements Serializable {
     }
 
     //漏电报警信号
+    @Title(value = "")
     private int loudianbaojingxinhao;
 
     /**
@@ -4435,6 +4655,7 @@ public class Device implements Serializable {
     }
 
     //缺水电极2
+    @Title(value = "")
     private int queshuidianji2;
 
     /**
@@ -4456,6 +4677,7 @@ public class Device implements Serializable {
     }
 
     //外部连锁信号
+    @Title(value = "")
     private int waibuliansuoxinhao;
 
     /**
@@ -4477,6 +4699,7 @@ public class Device implements Serializable {
     }
 
     //超低压保护信号
+    @Title(value = "")
     private int chaodiyabaohuxinhao;
 
     /**
@@ -4498,6 +4721,7 @@ public class Device implements Serializable {
     }
 
     //燃烧器启停
+    @Title(value = "")
     private int ranshaoqiqiting;
 
     /**
@@ -4519,6 +4743,7 @@ public class Device implements Serializable {
     }
 
     //燃烧器大火
+    @Title(value = "")
     private int ranshaoqidahuo;
 
     /**
@@ -4540,6 +4765,7 @@ public class Device implements Serializable {
     }
 
     //燃烧器三段火
+    @Title(value = "")
     private int ranshaoqisanduanhuo;
 
     /**
@@ -4561,6 +4787,7 @@ public class Device implements Serializable {
     }
 
     //燃烧器火力增加
+    @Title(value = "")
     private int ranshaoqihuolizengjia;
 
     /**
@@ -4582,6 +4809,7 @@ public class Device implements Serializable {
     }
 
     //燃烧器火力减少
+    @Title(value = "")
     private int ranshaoqihuolijianshao;
 
     /**
@@ -4603,6 +4831,7 @@ public class Device implements Serializable {
     }
 
     //给水泵（主）
+    @Title(value = "")
     private int jishuibeng;
 
     /**
@@ -4629,6 +4858,7 @@ public class Device implements Serializable {
     }
 
     //给水泵（备）
+    @Title(value = "")
     private int jishuibengbei;
 
     /**
@@ -4655,6 +4885,7 @@ public class Device implements Serializable {
     }
 
     //给水量增加
+    @Title(value = "")
     private int jishuiliangzengjia;
 
     /**
@@ -4676,6 +4907,7 @@ public class Device implements Serializable {
     }
 
     //给水量减少
+    @Title(value = "")
     private int jishuiliangjianshao;
 
     /**
@@ -4697,6 +4929,7 @@ public class Device implements Serializable {
     }
 
     //循环泵（主）
+    @Title(value = "")
     private int xunhuanbeng;
 
     /**
@@ -4723,6 +4956,7 @@ public class Device implements Serializable {
     }
 
     //循环泵（备）
+    @Title(value = "")
     private int xunhuanbengbei;
 
     /**
@@ -4749,6 +4983,7 @@ public class Device implements Serializable {
     }
 
     //报警输出
+    @Title(value = "")
     private int baojingshuchu;
 
     /**
@@ -4770,6 +5005,7 @@ public class Device implements Serializable {
     }
 
     //加热组1
+    @Title(value = "")
     private int jiarezu1;
 
     /**
@@ -4791,6 +5027,7 @@ public class Device implements Serializable {
     }
 
     //加热组2
+    @Title(value = "")
     private int jiarezu2;
 
     /**
@@ -4812,6 +5049,7 @@ public class Device implements Serializable {
     }
 
     //加热组3
+    @Title(value = "")
     private int jiarezu3;
 
     /**
@@ -4833,6 +5071,7 @@ public class Device implements Serializable {
     }
 
     //加热组4
+    @Title(value = "")
     private int jiarezu4;
 
     /**
@@ -4854,6 +5093,7 @@ public class Device implements Serializable {
     }
 
     //加热组5
+    @Title(value = "")
     private int jiarezu5;
 
     /**
@@ -4875,6 +5115,7 @@ public class Device implements Serializable {
     }
 
     //加热组6
+    @Title(value = "")
     private int jiarezu6;
 
     /**
@@ -4896,6 +5137,7 @@ public class Device implements Serializable {
     }
 
     //加热组7
+    @Title(value = "")
     private int jiarezu7;
 
     /**
@@ -4917,6 +5159,7 @@ public class Device implements Serializable {
     }
 
     //加热组8
+    @Title(value = "")
     private int jiarezu8;
 
     /**
@@ -4938,6 +5181,7 @@ public class Device implements Serializable {
     }
 
     //加热组9
+    @Title(value = "")
     private int jiarezu9;
 
     /**
@@ -4959,6 +5203,7 @@ public class Device implements Serializable {
     }
 
     //加热组10
+    @Title(value = "")
     private int jiarezu10;
 
     /**
@@ -4980,6 +5225,7 @@ public class Device implements Serializable {
     }
 
     //加热组11
+    @Title(value = "")
     private int jiarezu11;
 
     /**
@@ -5001,6 +5247,7 @@ public class Device implements Serializable {
     }
 
     //加热组12
+    @Title(value = "")
     private int jiarezu12;
 
     /**
@@ -5022,6 +5269,7 @@ public class Device implements Serializable {
     }
 
     //加热组13
+    @Title(value = "")
     private int jiarezu13;
 
     /**
@@ -5043,6 +5291,7 @@ public class Device implements Serializable {
     }
 
     //加热组14
+    @Title(value = "")
     private int jiarezu14;
 
     /**
@@ -5064,6 +5313,7 @@ public class Device implements Serializable {
     }
 
     //加热组15
+    @Title(value = "")
     private int jiarezu15;
 
     /**
@@ -5085,6 +5335,7 @@ public class Device implements Serializable {
     }
 
     //加热组16
+    @Title(value = "")
     private int jiarezu16;
 
     /**
@@ -5106,6 +5357,7 @@ public class Device implements Serializable {
     }
 
     //加热组17
+    @Title(value = "")
     private int jiarezu17;
 
     /**
@@ -5127,6 +5379,7 @@ public class Device implements Serializable {
     }
 
     //加热组18
+    @Title(value = "")
     private int jiarezu18;
 
     /**
@@ -5148,6 +5401,7 @@ public class Device implements Serializable {
     }
 
     //加热组19
+    @Title(value = "")
     private int jiarezu19;
 
     /**
@@ -5169,6 +5423,7 @@ public class Device implements Serializable {
     }
 
     //加热组20
+    @Title(value = "")
     private int jiarezu20;
 
     /**
@@ -5190,6 +5445,7 @@ public class Device implements Serializable {
     }
 
     //加热组21
+    @Title(value = "")
     private int jiarezu21;
 
     /**
@@ -5211,6 +5467,7 @@ public class Device implements Serializable {
     }
 
     //加热组22
+    @Title(value = "")
     private int jiarezu22;
 
     /**
@@ -5232,6 +5489,7 @@ public class Device implements Serializable {
     }
 
     //加热组23
+    @Title(value = "")
     private int jiarezu23;
 
     /**
@@ -5253,6 +5511,7 @@ public class Device implements Serializable {
     }
 
     //加热组24
+    @Title(value = "")
     private int jiarezu24;
 
     /**
@@ -5274,6 +5533,7 @@ public class Device implements Serializable {
     }
 
     //加热组25
+    @Title(value = "")
     private int jiarezu25;
 
     /**
@@ -5295,6 +5555,7 @@ public class Device implements Serializable {
     }
 
     //加热组26
+    @Title(value = "")
     private int jiarezu26;
 
     /**
@@ -5316,6 +5577,7 @@ public class Device implements Serializable {
     }
 
     //加热组27
+    @Title(value = "")
     private int jiarezu27;
 
     /**
@@ -5337,6 +5599,7 @@ public class Device implements Serializable {
     }
 
     //加热组28
+    @Title(value = "")
     private int jiarezu28;
 
     /**
@@ -5358,6 +5621,7 @@ public class Device implements Serializable {
     }
 
     //加热组29
+    @Title(value = "")
     private int jiarezu29;
 
     /**
@@ -5379,6 +5643,7 @@ public class Device implements Serializable {
     }
 
     //加热组30
+    @Title(value = "")
     private int jiarezu30;
 
     /**
@@ -5400,6 +5665,7 @@ public class Device implements Serializable {
     }
 
     //引风机
+    @Title(value = "")
     private int yinfengji;
 
     /**
@@ -5421,6 +5687,7 @@ public class Device implements Serializable {
     }
 
     //引风量增加
+    @Title(value = "")
     private int yinfengliangzengjia;
 
     /**
@@ -5442,6 +5709,7 @@ public class Device implements Serializable {
     }
 
     //引风量减少
+    @Title(value = "")
     private int yinfengliangjianshao;
 
     /**
@@ -5463,6 +5731,7 @@ public class Device implements Serializable {
     }
 
     //鼓风机
+    @Title(value = "")
     private int gufengji;
 
     /**
@@ -5484,6 +5753,7 @@ public class Device implements Serializable {
     }
 
     //鼓风量增加
+    @Title(value = "")
     private int gufengliangzengjia;
 
     /**
@@ -5505,6 +5775,7 @@ public class Device implements Serializable {
     }
 
     //鼓风量减少
+    @Title(value = "")
     private int gufengliangjianshao;
 
     /**
@@ -5526,6 +5797,7 @@ public class Device implements Serializable {
     }
 
     //二次鼓风机
+    @Title(value = "")
     private int ecigufengji;
 
     /**
@@ -5547,6 +5819,7 @@ public class Device implements Serializable {
     }
 
     //二次鼓风量增加
+    @Title(value = "")
     private int ecigufengliangzengjia;
 
     /**
@@ -5568,6 +5841,7 @@ public class Device implements Serializable {
     }
 
     //二次鼓风量减少
+    @Title(value = "")
     private int ecigufengliangjianshao;
 
     /**
@@ -5589,6 +5863,7 @@ public class Device implements Serializable {
     }
 
     //炉排或进料机正转
+    @Title(value = "")
     private int lupaihuojinliaojizhengzhuan;
 
     /**
@@ -5610,6 +5885,7 @@ public class Device implements Serializable {
     }
 
     //炉排反转
+    @Title(value = "")
     private int lupaifanzhuan;
 
     /**
@@ -5631,6 +5907,7 @@ public class Device implements Serializable {
     }
 
     //出渣机
+    @Title(value = "")
     private int chuzhaji;
 
     /**
@@ -5652,6 +5929,7 @@ public class Device implements Serializable {
     }
 
     //点火器
+    @Title(value = "")
     private int dianhuoqi;
 
     /**
@@ -5673,6 +5951,7 @@ public class Device implements Serializable {
     }
 
     //加药泵
+    @Title(value = "")
     private int jiayaobeng;
 
     /**
@@ -5694,6 +5973,7 @@ public class Device implements Serializable {
     }
 
     //排污阀
+    @Title(value = "")
     private int paiwufa;
 
     /**
@@ -5749,26 +6029,45 @@ public class Device implements Serializable {
 
     private int focusItem1, focusItem2, focusItem3;
 
+    public String getFocusItem1Text() {
+        return focusItem1Text;
+    }
+
+    public String getFocusItem2Text() {
+        return focusItem2Text;
+    }
+
+    public String getFocusItem3Text() {
+        return focusItem3Text;
+    }
+
+    private String focusItem1Text, focusItem2Text, focusItem3Text;
+
     public void initFocusItems(DeviceFocusConfig config) {
         for (SettingConfig conf : config.getSetting()) {
             if (this.getPower() == conf.getPower() && this.getMedia() == conf.getMedia()) {
                 try {
-                    this.focusItem1 = this.getClass().getDeclaredField(conf.getItem1()).getInt(this);
+                    Field field = this.getClass().getDeclaredField(conf.getItem1());
+                    this.focusItem1 = field.getInt(this);
+                    this.focusItem1Text = field.getAnnotation(Title.class).value();
+                }  catch (NoSuchFieldException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    Field field = this.getClass().getDeclaredField(conf.getItem2());
+                    this.focusItem2 = field.getInt(this);
+                    this.focusItem2Text = field.getAnnotation(Title.class).value();
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 } catch (NoSuchFieldException e) {
                     e.printStackTrace();
                 }
                 try {
-                    this.focusItem2 = this.getClass().getDeclaredField(conf.getItem2()).getInt(this);
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (NoSuchFieldException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    this.focusItem3 = this.getClass().getDeclaredField(conf.getItem3()).getInt(this);
-                } catch (IllegalAccessException e) {
+                    Field field = this.getClass().getDeclaredField(conf.getItem3());
+                    this.focusItem3 = field.getInt(this);
+                    this.focusItem3Text = field.getAnnotation(Title.class).value();} catch (IllegalAccessException e) {
                     e.printStackTrace();
                 } catch (NoSuchFieldException e) {
                     e.printStackTrace();
@@ -5776,15 +6075,6 @@ public class Device implements Serializable {
                 break;
             }
         }
-    }
-
-    /**
-     * 生成设备快照
-     *
-     * @return DeviceSnapshot
-     */
-    public DeviceSnapshot getSnapshot() {
-        return DeviceSnapshot.getDeviceSnapshot(this);
     }
 
     public int getAlarmCount() {
