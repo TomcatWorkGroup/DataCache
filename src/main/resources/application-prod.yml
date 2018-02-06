@@ -1,4 +1,6 @@
-romteurl: http://www.baidu.com
+logging:
+  file: /home/tomcat/datacache/webapps/datacache.log
+  level: error
 
 spring:
   rabbitmq:

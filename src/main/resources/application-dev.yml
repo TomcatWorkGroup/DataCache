@@ -1,4 +1,9 @@
-romteurl: http://www.163.com
+
+logging:
+  file: /home/tomcat/datacache/webapps/datacache.log
+  level: off
+romteurl:
+ selldevice: http://www.163.com
 
 spring:
   rabbitmq:
@@ -14,3 +19,5 @@ storageExchange:
     name: CacheStorageExchange
     queue: CacheStorageQueue
     routingkey: CacheStorage
+server:
+  port: 8081

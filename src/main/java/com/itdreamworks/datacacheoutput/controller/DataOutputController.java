@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("output")
+@RequestMapping("/output")
 public class DataOutputController {
 
     @Autowired
@@ -22,7 +22,6 @@ public class DataOutputController {
      * @param devicesIds
      * @return
      */
-    @Permission
     @PostMapping(value = "/devices")
     public List<DeviceSnapshot> getDevicesSnapshot(@RequestParam(name = "ids") String devicesIds) {
         String[] deviceKeys = devicesIds.split(",");
@@ -35,9 +34,8 @@ public class DataOutputController {
      * @param deviceId
      * @return
      */
-    @Permission
-    @PostMapping(value = "/device/{id}")
-    public Device getDeviceInfo(@PathVariable(name = "id") String deviceId) {
+    @PostMapping(value = "/device")
+    public Device getDeviceInfo(@RequestParam(name = "id") String deviceId) {
         return cacheUtil.getDevice(deviceId);
     }
 }

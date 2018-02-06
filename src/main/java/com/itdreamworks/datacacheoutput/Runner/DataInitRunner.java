@@ -1,8 +1,7 @@
 package com.itdreamworks.datacacheoutput.Runner;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.type.ArrayType;
-import com.itdreamworks.datacacheoutput.client.FeignClient;
+import com.itdreamworks.datacacheoutput.client.SellDeviceFeignClient;
 import com.itdreamworks.datacacheoutput.config.DeviceFocusConfig;
 import com.itdreamworks.datacacheoutput.entity.Device;
 import com.itdreamworks.datacacheoutput.utils.EhCacheUtil;
@@ -18,8 +17,6 @@ import java.util.Date;
 public class DataInitRunner implements ApplicationRunner {
     @Autowired
     ObjectMapper mapper;
-    @Autowired
-    FeignClient client;
     @Autowired
     EhCacheUtil cacheUtil;
 
@@ -61,7 +58,6 @@ public class DataInitRunner implements ApplicationRunner {
         device.setLuBiBaoJingWenDuSetting(200);
         device.setComeDate(new Date());
         device.initFocusItems(deviceFocusConfig);
-        //String s = client.getString();
 //        ArrayType javaType = mapper.getTypeFactory().constructArrayType(Device.class);
 //        Device[] devices = (Device[])mapper.readValue(s,javaType);
         Cache cache = cacheUtil.getCache(EhCacheUtil.CACHE_DEVICE_INFO);

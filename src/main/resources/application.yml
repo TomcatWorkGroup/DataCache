@@ -1,13 +1,10 @@
-logging:
-  file: /home/tomcat/apache-tomcat-8.5.8/webapps/datacache.log
-  level: error
 token:
   user: userToken
   resource: rescToken
 
 spring:
   profiles:
-      active: prod
+      active: dev
   cache:
     type: ehcache
     ehcache:
