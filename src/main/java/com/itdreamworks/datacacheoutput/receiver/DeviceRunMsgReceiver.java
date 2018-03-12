@@ -48,14 +48,14 @@ public class DeviceRunMsgReceiver extends BaseReceiver {
                 device.setDeviceNo(key);
                 device.setNickName(nickName);
                 modifyDeviceFields(jsonObj, device);
-                device.initFocusItems(deviceFocusConfig);
                 cacheUtil.putDevice(device);
-                sender.send(DeviceSnapshot.getDeviceSnapshot(device).toJson());
+                //sender.send(DeviceSnapshot.getDeviceSnapshot(device).toJson());
                 logger.error("DeviceRunMsgReceiver put cache and send storage msg");
             } else {
                 modifyDeviceFields(jsonObj, device);
                 logger.error("DeviceRunMsgReceiver modify device fields");
             }
+            device.initFocusItems(deviceFocusConfig);
         } catch (IOException e1) {
             e1.printStackTrace();
         }

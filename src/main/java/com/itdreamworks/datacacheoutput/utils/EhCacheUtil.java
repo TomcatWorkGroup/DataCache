@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.ehcache.EhCacheCache;
-import org.springframework.cache.ehcache.EhCacheCacheManager;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ public class EhCacheUtil {
     public static final String CACHE_DEVICE_INFO = "cache_device_info";
 
     @Autowired
-    EhCacheCacheManager cacheManager;
+    CacheManager cacheManager;
 
 
     public EhCacheCache getCache(String cacheName){

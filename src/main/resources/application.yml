@@ -4,7 +4,7 @@ token:
 
 spring:
   profiles:
-      active: dev
+      active: prod
   cache:
     type: ehcache
     ehcache:
