@@ -1,7 +1,7 @@
 token:
   user: userToken
   resource: rescToken
-
+  
 spring:
   profiles:
       active: prod

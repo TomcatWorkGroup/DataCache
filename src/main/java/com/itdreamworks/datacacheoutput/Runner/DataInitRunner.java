@@ -61,4 +61,5 @@ public class DataInitRunner implements ApplicationRunner {
 //        Cache cache = cacheUtil.getCache(EhCacheUtil.CACHE_DEVICE_INFO);
 //        cache.put(device.getDeviceNo(),device);
     }
+
 }
