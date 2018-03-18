@@ -14,12 +14,12 @@ devicefocus:
   -
     power: 0
     media: 0
-    item1: lushuiwendu
-    item2: jishuiwendu
-    item3: zhengqiyali
+    item1: rukouwendu
+    item2: chukouwendu
+    item3: paiyanwendu
   -
-    power: 1
+    power: 0
     media: 1
     item1: zhengqiyali
-    item2: chukouyali
-    item3: rukouyali
+    item2: paiyanwendu
+    item3:

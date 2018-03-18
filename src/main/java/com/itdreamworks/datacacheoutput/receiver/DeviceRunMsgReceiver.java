@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.Date;
 import java.util.LinkedHashMap;
 
 @Component
@@ -48,6 +49,7 @@ public class DeviceRunMsgReceiver extends BaseReceiver {
                 device.setDeviceNo(key);
                 device.setNickName(nickName);
                 modifyDeviceFields(jsonObj, device);
+                device.setComeDate(new Date());
                 cacheUtil.putDevice(device);
                 //sender.send(DeviceSnapshot.getDeviceSnapshot(device).toJson());
                 logger.error("DeviceRunMsgReceiver put cache and send storage msg");

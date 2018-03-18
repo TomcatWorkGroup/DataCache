@@ -3,14 +3,10 @@
     <!-- 指定一个文件目录，当EHCache把数据写到硬盘上时，将把数据写到这个文件目录下 -->
     <diskStore path="java.io.tmpdir/Tmp_EhCache"/>
     <!-- 设定缓存容器名称、容量 -->
-    <cache name="cache_device_info" maxElementsInMemory="10000" />
-    <!-- 设定缓存的默认数据过期策略 -->
-    <defaultCache
-            maxElementsInMemory="10000"
-            eternal="true"
-            overflowToDisk="false"
-            memoryStoreEvictionPolicy="LRU"/>
-
+    <cache name="cache_device_info" maxElementsInMemory="10000"
+           overflowToDisk="false"
+           timeToIdleSeconds="180"
+           memoryStoreEvictionPolicy="LRU" />
     <!-- maxElementsInMemory 内存中最大缓存对象数，看着自己的heap大小来搞 -->
     <!-- eternal：true表示对象永不过期，此时会忽略timeToIdleSeconds和timeToLiveSeconds属性，默认为false -->
     <!-- maxElementsOnDisk：硬盘中最大缓存对象数，若是0表示无穷大 -->
